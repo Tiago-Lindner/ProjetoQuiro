@@ -17,7 +17,7 @@ public class Pessoa extends PanacheEntity{
     //private static final long serialVersionUID = 1L;
 	
 	// ver jwt
-	
+
 	//Atributos
 	/*
     @Id
@@ -49,7 +49,7 @@ public class Pessoa extends PanacheEntity{
 		this.nome = nome;
 	};
 	
-	public Pessoa(String nome, String cpf, String email, String userLogin, String userSenha, Endereco endereco) {
+	public Pessoa(String nome, String cpf, String email, String userLogin, String userSenha, String endereco) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
@@ -58,7 +58,7 @@ public class Pessoa extends PanacheEntity{
 		this.endereco = endereco;
 	}
 	
-	public Pessoa(String nome, String cpf, String email, String userLogin, String userSenha, Endereco endereco, Set<Consultas> consultas) {
+	public Pessoa(String nome, String cpf, String email, String userLogin, String userSenha, String endereco, Set<Consultas> consultas) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
@@ -111,10 +111,10 @@ public class Pessoa extends PanacheEntity{
 		this.telefone = telefone;
 	}
 	
-	public Endereco getEndereco() {
+	public String getEndereco() {
 		return endereco;
 	}
-	public void setEndereco(Endereco endereco) {
+	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 	
@@ -129,6 +129,8 @@ public class Pessoa extends PanacheEntity{
 // funcoes
 /*
 login
+
+criar usuario
 marcar consulta
 checar agenda
 
