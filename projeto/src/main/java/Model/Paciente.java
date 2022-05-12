@@ -3,38 +3,119 @@ package Model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-public class Paciente extends Pessoa{
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+
+@Entity
+public class Pessoa extends PanacheEntity{
     
-    //Atributos
+    //private static final long serialVersionUID = 1L;
+	
+	//Atributos
+	/*
+    @Id
+	@Column(name="IdPessoa")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	*/
+	private String nome;
+	private String cpf;
+	private String email;
+	private String userLogin;
+	private String userSenha;
+	//private String tipoLogin;
+	private String telefone;
+	@OneToOne (cascade= CascadeType.PERSIST, fetch = FetchType.EAGER)
+	private Endereco endereco;
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     // name = nome da coluna que irá armazenar a chave estrangeira
     // na tabela Message (solução a partir da JPA 2)
     @JoinColumn(name="Consultas_Pac")
 	private Set<Consulta> consultas;
 
+	
 	//Contrutores
-	public Paciente() {};
-	public Paciente(String nome, String cpf, String email, String userLogin, String userSenha,
-			String tipoLogin, Endereco endereco) {
-		super(nome, cpf, email, userLogin, userSenha, tipoLogin, endereco);
+	//ver o construtor sem parametros
+	public Pessoa() {};
+	public Pessoa(String nome) {
+		this.nome = nome;
+	};
+	
+	public Pessoa(String nome, String cpf, String email, String userLogin, String userSenha, Endereco endereco) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.userLogin = userLogin;
+		this.userSenha = userSenha;
+		this.endereco = endereco;
 	}
 	
-	public Paciente(int codigo, String nome, String cpf, String email, String userLogin, String userSenha,
-			String tipoLogin, Set<Telefone> telefones, Endereco endereco) {
-		super(codigo, nome, cpf, email, userLogin, userSenha, tipoLogin, telefones, endereco);
-	}
-	
-	public Paciente(int codigo, String nome, String cpf, String email, String userLogin, String userSenha,
-			String tipoLogin, Set<Telefone> telefones, Endereco endereco, Set<Consulta> consultas) {
-		super(codigo, nome, cpf, email, userLogin, userSenha, tipoLogin, telefones, endereco);
+	public Pessoa(String nome, String cpf, String email, String userLogin, String userSenha, Endereco endereco, Set<Consultas> consultas) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.userLogin = userLogin;
+		this.userSenha = userSenha;
+		this.endereco = endereco;
 		this.consultas = consultas;
 	}
 	
-	//getters e setters
+	//Getters e Setters
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getUserLogin() {
+		return userLogin;
+	}
+	public void setUserLogin(String userLogin) {
+		this.userLogin = userLogin;
+	}
+	
+	public String getUserSenha() {
+		return userSenha;
+	}
+	public void setUserSenha(String userSenha) {
+		this.userSenha = userSenha;
+	}
+	
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefones(String telefone) {
+		this.telefone = telefone;
+	}
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+	
 	public Set<Consulta> getConsultas() {
 		return consultas;
 	}
@@ -42,4 +123,16 @@ public class Paciente extends Pessoa{
 		this.consultas = consultas;
 	}
 
+
+// funcoes
+/*
+login
+marcar consulta
+checar agenda
+
+
+
+*/ 
+
+    
 }

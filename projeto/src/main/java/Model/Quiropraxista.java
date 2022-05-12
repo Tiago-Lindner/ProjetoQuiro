@@ -7,10 +7,15 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-public class Quiropraxista extends Pessoa{
+@Entity
+public class Quiropraxista extends PanacheEntity{
     
     //Atributos
 	
+	private String nome;
+	private String cpf;
+	private String email;
+
 	private String crm;
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     // name = nome da coluna que irá armazenar a chave estrangeira
@@ -20,14 +25,36 @@ public class Quiropraxista extends Pessoa{
 
 	//Contrutores
 	public Quiropraxista() {};
-	public Quiropraxista(int codigo, String nome, String cpf, String email, String userLogin, String userSenha,
-			String tipoLogin, Set<Telefone> telefones, Endereco endereco, String crm, Set<Consulta> consultas) {
-		super(codigo, nome, cpf, email, userLogin, userSenha, tipoLogin, telefones, endereco);
+	public Quiropraxista(String nome, String cpf, String email, String crm, Set<Consulta> consultas) {
+		this.nome = nome;
+		this.cpf = cps;
+		this.email = email;
 		this.crm = crm;
 		this.consultas = consultas;
 	}
 	
 	//Getters e Setters
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getCrm() {
 		return crm;
 	}
