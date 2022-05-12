@@ -23,6 +23,8 @@ public class Quiropraxista extends PanacheEntity{
     @JoinColumn(name="Consultas_Quiro")
 	private Set<Consulta> consultas;
 
+	//precisa de consultas?
+
 	//Contrutores
 	public Quiropraxista() {};
 	public Quiropraxista(String nome, String cpf, String email, String crm, Set<Consulta> consultas) {

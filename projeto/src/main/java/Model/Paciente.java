@@ -16,6 +16,8 @@ public class Pessoa extends PanacheEntity{
     
     //private static final long serialVersionUID = 1L;
 	
+	// ver jwt
+	
 	//Atributos
 	/*
     @Id
@@ -31,7 +33,7 @@ public class Pessoa extends PanacheEntity{
 	//private String tipoLogin;
 	private String telefone;
 	@OneToOne (cascade= CascadeType.PERSIST, fetch = FetchType.EAGER)
-	private Endereco endereco;
+	private String endereco;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     // name = nome da coluna que irá armazenar a chave estrangeira
