@@ -1,5 +1,7 @@
 package control;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -22,5 +24,16 @@ public class PacienteWS {
         pac.persist();
         return pac;
     }
+
+    @GET
+    @Path("/listar")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public List<Paciente> list() {
+        // 3 - O método `listAll` recupera todos os objetos da classe User.
+        return Paciente.listAll();
+    }
+
+    
 
 }

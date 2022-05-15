@@ -124,6 +124,9 @@ public class Paciente extends PanacheEntity{
 	public void setConsultas(Set<Consulta> consultas) {
 		this.consultas = consultas;
 	}
+	
+	public void addConsulta(Consulta consulta) {
+	}
 
 
 // funcoes

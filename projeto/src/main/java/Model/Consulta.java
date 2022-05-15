@@ -12,7 +12,7 @@ public class Consulta extends PanacheEntity {
 	private double data;
 	private double inicioHora;
 	private double fimHora;
-	private String situacao; //alterar no diagrama// fazer enum com marcada/confirmada/realizada/cancelada
+	private String situacao;
 	
 	private Paciente paciente;
 	private Quiropraxista quiro;
