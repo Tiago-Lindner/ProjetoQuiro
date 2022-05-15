@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.util.Set;
 
@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
-public class Pessoa extends PanacheEntity{
+public class Paciente extends PanacheEntity{
     
     //private static final long serialVersionUID = 1L;
 	
@@ -44,12 +44,12 @@ public class Pessoa extends PanacheEntity{
 	
 	//Contrutores
 	//ver o construtor sem parametros
-	public Pessoa() {};
-	public Pessoa(String nome) {
+	public Paciente() {};
+	public Paciente(String nome) {
 		this.nome = nome;
 	};
 	
-	public Pessoa(String nome, String cpf, String email, String userLogin, String userSenha, String endereco) {
+	public Paciente(String nome, String cpf, String email, String userLogin, String userSenha, String endereco) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
@@ -58,7 +58,7 @@ public class Pessoa extends PanacheEntity{
 		this.endereco = endereco;
 	}
 	
-	public Pessoa(String nome, String cpf, String email, String userLogin, String userSenha, String endereco, Set<Consultas> consultas) {
+	public Paciente(String nome, String cpf, String email, String userLogin, String userSenha, String endereco, Set<Consulta> consultas) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;

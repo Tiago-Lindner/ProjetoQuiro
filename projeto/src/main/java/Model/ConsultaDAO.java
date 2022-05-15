@@ -1,11 +1,9 @@
-package Control;
+package model;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
-import Model.Consulta;
 
 public class ConsultaDAO {
 

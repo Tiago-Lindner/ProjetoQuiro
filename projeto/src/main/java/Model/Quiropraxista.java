@@ -1,11 +1,14 @@
-package Model;
+package model;
 
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
 public class Quiropraxista extends PanacheEntity{
@@ -29,7 +32,7 @@ public class Quiropraxista extends PanacheEntity{
 	public Quiropraxista() {};
 	public Quiropraxista(String nome, String cpf, String email, String crm, Set<Consulta> consultas) {
 		this.nome = nome;
-		this.cpf = cps;
+		this.cpf = cpf;
 		this.email = email;
 		this.crm = crm;
 		this.consultas = consultas;

@@ -1,4 +1,4 @@
-package Control;
+package model;
 
 
 import javax.persistence.*;
